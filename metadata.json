@@ -1,0 +1,6 @@
+{
+  "name": "KOHINOOR FF TOURNAMENTS",
+  "description": "Mobile-first Free Fire esports tournament platform with free entry, non-monetary virtual points, teams, live brackets, and badges.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

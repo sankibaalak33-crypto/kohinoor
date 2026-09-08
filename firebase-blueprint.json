@@ -1,0 +1,116 @@
+{
+  "entities": {
+    "UserProfile": {
+      "collection": "users",
+      "fields": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "username": { "type": "string" },
+        "avatar": { "type": "string" },
+        "ffPlayerId": { "type": "string" },
+        "ffNickname": { "type": "string" },
+        "virtualPoints": { "type": "number" },
+        "totalMatches": { "type": "number" },
+        "wins": { "type": "number" },
+        "kills": { "type": "number" },
+        "positionStats": {
+          "type": "object",
+          "properties": {
+            "first": { "type": "number" },
+            "second": { "type": "number" },
+            "third": { "type": "number" },
+            "top10": { "type": "number" }
+          }
+        },
+        "role": { "type": "string", "enum": ["player", "admin"] },
+        "isBanned": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "Team": {
+      "collection": "teams",
+      "fields": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "tag": { "type": "string" },
+        "captainId": { "type": "string" },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "userId": { "type": "string" },
+              "username": { "type": "string" },
+              "ffNickname": { "type": "string" },
+              "ffPlayerId": { "type": "string" },
+              "role": { "type": "string" }
+            }
+          }
+        },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "Tournament": {
+      "collection": "tournaments",
+      "fields": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "mode": { "type": "string" },
+        "map": { "type": "string" },
+        "maxTeams": { "type": "number" },
+        "teamsPerMatch": { "type": "number" },
+        "playersPerTeam": { "type": "number" },
+        "registrationOpenTime": { "type": "string" },
+        "registrationCloseTime": { "type": "string" },
+        "matchStartTime": { "type": "string" },
+        "status": { "type": "string" },
+        "rules": { "type": "array", "items": { "type": "string" } },
+        "pointPool": { "type": "number" },
+        "virtualPointsDistribution": {
+          "type": "object",
+          "properties": {
+            "first": { "type": "number" },
+            "second": { "type": "number" },
+            "third": { "type": "number" },
+            "fourth": { "type": "number" }
+          }
+        },
+        "registeredTeamIds": { "type": "array", "items": { "type": "string" } },
+        "roomInfo": {
+          "type": "object",
+          "properties": {
+            "roomId": { "type": "string" },
+            "password": { "type": "string" },
+            "isPublished": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "Match": {
+      "collection": "matches",
+      "fields": {
+        "id": { "type": "string" },
+        "tournamentId": { "type": "string" },
+        "tournamentName": { "type": "string" },
+        "matchNumber": { "type": "number" },
+        "teamA": { "type": "object" },
+        "teamB": { "type": "object" },
+        "status": { "type": "string" },
+        "startTime": { "type": "string" },
+        "roomInfo": { "type": "object" }
+      }
+    },
+    "Notification": {
+      "collection": "notifications",
+      "fields": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "read": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      }
+    }
+  }
+}
